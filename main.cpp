@@ -30,10 +30,37 @@ public:
     }
 };
 
+class Caesar {
+private:
+    map<char, int> numerals;
+public:
+    Caesar() {
+        numerals['M'] = 1000000;
+        numerals['D'] = 500000;
+        numerals['C'] = 100000;
+        numerals['L'] = 50000;
+        numerals['X'] = 10000;
+        numerals['V'] = 5000;
+        numerals['I'] = 1;
+        numerals['m'] = 1000;
+        numerals['d'] = 500;
+        numerals['c'] = 100;
+        numerals['l'] = 50;
+        numerals['x'] = 10;
+        numerals['v'] = 5;
+        numerals['i'] = 1;
+    }
+};
+
+
+
+
 
 void RTA() {
     char input[80];
     int count = 0;
+
+
 
 }
 
