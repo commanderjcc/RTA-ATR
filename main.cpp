@@ -9,6 +9,9 @@
 using namespace std;
 
 class Group {
+private:
+    int numCount = 0;
+
 public:
     int total = 0;
     int values[80];
@@ -47,8 +50,10 @@ public:
 class Caesar {
 private:
     map<char, int> numerals;
+
+    Group groups[80];
 public:
-    Caesar() {
+    Caesar(char in[80]) {
         numerals['M'] = 1000000;
         numerals['D'] = 500000;
         numerals['C'] = 100000;
@@ -63,6 +68,37 @@ public:
         numerals['x'] = 10;
         numerals['v'] = 5;
         numerals['i'] = 1;
+
+        int startNum = in[0];
+        int currentPosition = 0; //we add to it first thing in the loop
+        int currentGroup = 0;
+        int canContinue = false; //flag to get around loop limiations
+        do {
+            do {
+                cout << "in group " << currentGroup << " with position " << currentPosition << endl;
+                groups[currentGroup].appendNum(numerals[in[currentPosition]]);
+                cout << "append " << in[currentPosition] << endl;
+                if(numerals[in[currentPosition]] < numerals[in[currentPosition+1]]) {
+                    groups[currentGroup].subtraction = true;
+                    cout << "Subtraction set to true\n";
+                }
+                currentPosition++;
+            } while (groups[currentGroup].values[0] <= numerals[in[currentPosition]] && in[currentPosition] != '\0');
+                cout << "stop group " << currentGroup << endl << endl;
+                currentGroup++;
+        } while (in[currentPosition] != '\0');
+        cout << "done!\n";
+    }
+
+    int getTotal() {
+        int total = 0;
+        for (Group currentGroup : groups) {
+            cout << currentGroup.getTotal() << endl;
+            total += currentGroup.getTotal();
+        }
+
+        return total;
+    }
     }
 };
 
@@ -72,10 +108,20 @@ public:
 
 void RTA() {
     char input[80];
-    int count = 0;
 
+    cout << "\nM = 1000000   m = 1000\n"
+         <<   "D = 500000    d = 500\n"
+         <<   "C = 100000    c = 100\n"
+         <<   "L = 50000     l = 50\n"
+         <<   "X = 10000     x = 10\n"
+         <<   "V = 5000      v = 5\n"
+         <<   "I = 1         i = 1;\n"
+         << "[Enter roman numerals]: ";
+    cin >> input;
 
+    auto centruion = Caesar(input);
 
+    cout << endl << centruion.getTotal() << endl << endl;
 }
 
 void ATR() {
