@@ -99,6 +99,166 @@ public:
 
         return total;
     }
+};
+
+class Nero {
+private:
+    map<int, char> numerals;
+public:
+    int number = 0;
+
+    Nero(int num) {
+        numerals[1000000] = 'M';
+        numerals[500000] = 'D';
+        numerals[100000] = 'C';
+        numerals[50000] = 'L';
+        numerals[10000] = 'X';
+        numerals[5000] = 'V';
+        numerals[1000] = 'm';
+        numerals[500] = 'd';
+        numerals[100] = 'c';
+        numerals[50] = 'l';
+        numerals[10] = 'x';
+        numerals[5] = 'v';
+        numerals[1] = 'i';
+
+        number = num;
+    }
+
+    string convertToRoman() {
+        string currentString;
+        int currentTotal = number;
+
+        while (currentTotal >= 1000000) {
+            currentTotal -= 1000000;
+            currentString.append("M");
+        }
+
+        if (currentTotal >= 900000) {
+            currentTotal -= 900000;
+            currentString.append("CM");
+        }
+
+        if (currentTotal >= 500000) {
+            currentTotal -= 500000;
+            currentString.append("D");
+        }
+
+        if (currentTotal >= 400000) {
+            currentTotal -= 400000;
+            currentString.append("CD");
+        }
+
+        while (currentTotal >= 100000) {
+            currentTotal -= 100000;
+            currentString.append("C");
+        }
+
+        if (currentTotal >= 90000) {
+            currentTotal -= 90000;
+            currentString.append("XC");
+        }
+
+        if (currentTotal >= 50000) {
+            currentTotal -= 50000;
+            currentString.append("L");
+        }
+
+        if (currentTotal >= 40000) {
+            currentTotal -= 40000;
+            currentString.append("XL");
+        }
+
+        while (currentTotal >= 10000) {
+            currentTotal -= 10000;
+            currentString.append("X");
+        }
+
+        if (currentTotal >= 9000) {
+            currentTotal -= 9000;
+            currentString.append("IX");
+        }
+
+        if (currentTotal >= 5000) {
+            currentTotal -= 5000;
+            currentString.append("V");
+        }
+
+        if (currentTotal >= 4000) {
+            currentTotal -= 4000;
+            currentString.append("mV");
+        }
+
+        while (currentTotal >= 1000) {
+            currentTotal -= 1000;
+            currentString.append("m");
+        }
+
+        if (currentTotal >= 900) {
+            currentTotal -= 900;
+            currentString.append("cm");
+        }
+
+        if (currentTotal >= 500) {
+            currentTotal -= 500;
+            currentString.append("d");
+        }
+
+        if (currentTotal >= 400) {
+            currentTotal -= 400;
+            currentString.append("cd");
+        }
+
+        while (currentTotal >= 100) {
+            currentTotal -= 100;
+            currentString.append("c");
+        }
+
+        if (currentTotal >= 90) {
+            currentTotal -= 90;
+            currentString.append("xc");
+        }
+
+        if (currentTotal >= 50) {
+            currentTotal -= 50;
+            currentString.append("l");
+        }
+
+        if (currentTotal >= 40) {
+            currentTotal -= 40;
+            currentString.append("xl");
+        }
+
+        while (currentTotal >= 10) {
+            currentTotal -= 10;
+            currentString.append("x");
+        }
+
+        if (currentTotal >= 9) {
+            currentTotal -= 9;
+            currentString.append("ix");
+        }
+
+        if (currentTotal >= 5) {
+            currentTotal -= 5;
+            currentString.append("v");
+        }
+
+        if (currentTotal >= 4) {
+            currentTotal -= 4;
+            currentString.append("iv");
+        }
+
+        while (currentTotal >= 1) {
+            currentTotal -= 1;
+            currentString.append("i");
+        }
+
+        return currentString;
+
+    }
+
+};
     }
 };
 
