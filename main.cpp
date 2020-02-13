@@ -259,12 +259,6 @@ public:
     }
 
 };
-    }
-};
-
-
-
-
 
 void RTA() {
     char input[80];
@@ -285,7 +279,14 @@ void RTA() {
 }
 
 void ATR() {
+    int input;
 
+    cout << "\n[Enter an Arabic number]: ";
+    cin >> input;
+
+    auto blackPlague = Nero(input);
+
+    cout << endl << blackPlague.convertToRoman() << endl << endl;
 }
 
 
