@@ -14,13 +14,27 @@ public:
     int values[80];
     bool subtraction = false;
 
+
+    Group() {
+        for (int & value : values) {
+            value = 0;
+        }
+    }
+
+    void appendNum(int num) {
+        values[numCount] = num;
+        numCount++;
+    }
+
     int getTotal() {
+        bool needsSubtraction = subtraction;
+        total = 0;
         for (int i = 0; i < 80; i++) {
-            if (!subtraction) {
+            if (!needsSubtraction) {
                 total += values[i];
             } else {
-                if (values[i+1] > values[i]) {
-                    subtraction = false;
+                if (values[i+1] > values[0]) {
+                    needsSubtraction = false;
                 }
                 total -= values[i];
             }
