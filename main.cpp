@@ -130,34 +130,22 @@ void ATR() {
 
 
 int main() {
-//    int choice = 0;
-//    do {
-//        cout << "What would you like to do?\n"
-//             << "1: Roman to Arabic\n"
-//             << "2: Arabic to Roman\n"
-//             << "[Enter a number]: ";
-//        cin >> choice;
-//
-//        if (choice == 1) {
-//            RTA();
-//        } else {
-//            ATR();
-//        }
-//
-//    } while (choice != 0);
+    int choice = 0;
+    do {
+        cout << "What would you like to do?\n"
+             << "1: Roman to Arabic\n"
+             << "2: Arabic to Roman\n"
+             << "0: Exit\n"
+             << "[Enter a number]: ";
+        cin >> choice;
 
-    auto *myGroup = new Group;
+        if (choice == 1) {
+            RTA();
+        } else if (choice == 2) {
+            ATR();
+        }
 
-    myGroup->values[0] = 10;
-    myGroup->values[1] = 5;
-    myGroup->values[2] = 1;
-    myGroup->values[4] = 50;
-//    myGroup->values[3] = 50;
-//    myGroup->values[4] = 5;
-//    myGroup->values[5] = 1;
-//    myGroup->values[6] = 1;
-    myGroup->subtraction = true;
+    } while (choice != 0);
 
-    cout << myGroup->getTotal();
-
+    return 0;
 }
