@@ -75,16 +75,16 @@ public:
         int canContinue = false; //flag to get around loop limiations
         do {
             do {
-                cout << "in group " << currentGroup << " with position " << currentPosition << endl;
+//                cout << "in group " << currentGroup << " with position " << currentPosition << endl;
                 groups[currentGroup].appendNum(numerals[in[currentPosition]]);
-                cout << "append " << in[currentPosition] << endl;
+//                cout << "append " << in[currentPosition] << endl;
                 if(numerals[in[currentPosition]] < numerals[in[currentPosition+1]]) {
                     groups[currentGroup].subtraction = true;
-                    cout << "Subtraction set to true\n";
+//                    cout << "Subtraction set to true\n";
                 }
                 currentPosition++;
             } while (groups[currentGroup].values[0] <= numerals[in[currentPosition]] && in[currentPosition] != '\0');
-                cout << "stop group " << currentGroup << endl << endl;
+//                cout << "stop group " << currentGroup << endl << endl;
                 currentGroup++;
         } while (in[currentPosition] != '\0');
         cout << "done!\n";
@@ -93,7 +93,7 @@ public:
     int getTotal() {
         int total = 0;
         for (Group currentGroup : groups) {
-            cout << currentGroup.getTotal() << endl;
+//            cout << currentGroup.getTotal() << endl;
             total += currentGroup.getTotal();
         }
 
@@ -289,6 +289,12 @@ void ATR() {
     cout << endl << blackPlague.convertToRoman() << endl << endl;
 }
 
+void BTA() {
+    string s;
+    cin >> s; // Suppose s = "100100101"
+    int n = stoi(s, nullptr, 2);
+    cout<<n; // 293
+}
 
 int main() {
     int choice = 0;
